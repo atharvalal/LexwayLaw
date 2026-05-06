@@ -63,7 +63,7 @@ export default function BlogPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-36 md:pb-24">
+      <section className="page-header relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#052656]/40 to-[#0B011C]" />
         <div className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -73,15 +73,15 @@ export default function BlogPage() {
         />
         <div className="container-custom relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="page-eyebrow">
               <span className="w-8 h-px bg-[#FFFFFF]" />
-              <span className="text-[#FFFFFF] text-xs tracking-[0.3em] uppercase">Knowledge Hub</span>
+              <span className="text-[10px] uppercase tracking-[0.24em] text-[#FFFFFF] sm:text-xs sm:tracking-[0.3em]">Knowledge Hub</span>
               <span className="w-8 h-px bg-[#FFFFFF]" />
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl text-white mb-6" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
+            <h1 className="page-title font-serif text-white" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
               Legal <em className="text-gradient not-italic">Insights</em>
             </h1>
-            <p className="text-white/50 text-lg max-w-xl mx-auto">
+            <p className="page-subtitle max-w-xl text-white/50">
               Analysis, commentary, and practical guidance from our attorneys on the legal issues that matter.
             </p>
           </motion.div>
@@ -92,8 +92,8 @@ export default function BlogPage() {
         <div className="container-custom">
           {/* Featured */}
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <Link href={`/blog/${featured.slug}`} className="group block bg-glass-blue p-10 md:p-14 mb-8 hover:border-[#FFFFFF]/30 transition-all duration-400 card-hover">
-              <div className="flex flex-wrap items-center gap-4 mb-6">
+            <Link href={`/blog/${featured.slug}`} className="group mb-8 block bg-glass-blue p-6 transition-all duration-400 hover:border-[#FFFFFF]/30 card-hover sm:p-8 md:p-14">
+              <div className="mb-6 flex flex-wrap items-center gap-3 sm:gap-4">
                 <span className="px-3 py-1 bg-[#FFFFFF]/10 border border-[#FFFFFF]/30 text-[#FFFFFF] text-[10px] tracking-[0.3em] uppercase">
                   Featured · {featured.tag}
                 </span>
@@ -104,10 +104,10 @@ export default function BlogPage() {
                   <Clock className="w-3 h-3" />{featured.readTime}
                 </span>
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl text-white group-hover:text-[#FFFFFF] transition-colors mb-4" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
+              <h2 className="mb-4 font-serif text-2xl text-white transition-colors group-hover:text-[#FFFFFF] sm:text-3xl md:text-4xl" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
                 {featured.title}
               </h2>
-              <p className="text-white/40 text-base leading-relaxed max-w-2xl mb-6">{featured.excerpt}</p>
+              <p className="mb-6 max-w-2xl text-sm leading-relaxed text-white/40 sm:text-base">{featured.excerpt}</p>
               <div className="flex items-center gap-2 text-[#FFFFFF] text-xs tracking-widest uppercase">
                 <span>Read Article</span>
                 <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
@@ -116,7 +116,7 @@ export default function BlogPage() {
           </motion.div>
 
           {/* Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {rest.map((article, i) => (
               <motion.article
                 key={article.slug}
@@ -125,7 +125,7 @@ export default function BlogPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
               >
-                <Link href={`/blog/${article.slug}`} className="group block bg-glass-blue p-7 h-full hover:border-[#FFFFFF]/30 transition-all duration-400 card-hover">
+                <Link href={`/blog/${article.slug}`} className="group block h-full bg-glass-blue p-6 transition-all duration-400 hover:border-[#FFFFFF]/30 card-hover sm:p-7">
                   <div className="inline-block px-3 py-1 bg-[#FFFFFF]/10 border border-[#FFFFFF]/20 text-[#FFFFFF] text-[10px] tracking-[0.25em] uppercase mb-5">
                     {article.tag}
                   </div>
@@ -133,8 +133,8 @@ export default function BlogPage() {
                     {article.title}
                   </h3>
                   <p className="text-white/40 text-sm leading-relaxed mb-6">{article.excerpt}</p>
-                  <div className="flex items-center justify-between text-white/25 text-xs">
-                    <div className="flex gap-4">
+                  <div className="flex flex-col gap-4 text-xs text-white/25 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex flex-wrap gap-x-4 gap-y-2">
                       <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3" />{article.date}</span>
                       <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" />{article.readTime}</span>
                     </div>

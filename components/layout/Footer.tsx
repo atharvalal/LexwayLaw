@@ -22,11 +22,11 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/8 bg-[#060110]">
       {/* Main footer */}
-      <div className="container-custom pt-12 pb-14 md:pt-14 md:pb-16">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container-custom pt-16 pb-10 md:pt-14 md:pb-16">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-6 group">
+            <Link href="/" className="mb-5 flex items-center gap-3 group">
               <div className="flex h-9 w-9 items-center justify-center border border-white/35">
                 <Scale className="h-4 w-4 text-[#DCE7FA]" strokeWidth={1.5} />
               </div>
@@ -42,7 +42,7 @@ export default function Footer() {
                 </div>
               </div>
             </Link>
-            <p className="text-white/40 text-sm leading-relaxed mb-6">
+            <p className="mb-5 max-w-sm text-sm leading-relaxed text-white/40">
               Providing trusted legal solutions with integrity, precision, and unwavering dedication to our clients since 2010.
             </p>
             <div className="flex gap-3">
@@ -64,10 +64,10 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="text-white text-sm tracking-[0.2em] uppercase font-medium mb-6">
+            <h4 className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-white sm:mb-6">
               Quick Links
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5 sm:space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -84,10 +84,10 @@ export default function Footer() {
 
           {/* Practice areas */}
           <div>
-            <h4 className="text-white text-sm tracking-[0.2em] uppercase font-medium mb-6">
+            <h4 className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-white sm:mb-6">
               Practice Areas
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5 sm:space-y-3">
               {practiceAreas.map((area) => (
                 <li key={area}>
                   <Link
@@ -104,10 +104,10 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white text-sm tracking-[0.2em] uppercase font-medium mb-6">
+            <h4 className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-white sm:mb-6">
               Contact Us
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#FFFFFF] mt-0.5 shrink-0" strokeWidth={1.5} />
                 <span className="text-white/40 text-sm leading-relaxed">
@@ -133,15 +133,15 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/8">
-        <div className="container-custom py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/25 text-xs tracking-widest">
+        <div className="container-custom flex flex-col items-center justify-between gap-4 py-6 text-center sm:flex-row sm:text-left">
+          <p className="text-xs tracking-widest text-white/25">
             © {new Date().getFullYear()} Lexway Law Associates. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <Link href="#" className="text-white/25 hover:text-[#FFFFFF]/70 text-xs tracking-wider transition-colors">
+          <div className="flex flex-wrap justify-center gap-4 sm:justify-end sm:gap-6">
+            <Link href="#" className="text-xs tracking-wider text-white/25 transition-colors hover:text-[#FFFFFF]/70">
               Privacy Policy
             </Link>
-            <Link href="#" className="text-white/25 hover:text-[#FFFFFF]/70 text-xs tracking-wider transition-colors">
+            <Link href="#" className="text-xs tracking-wider text-white/25 transition-colors hover:text-[#FFFFFF]/70">
               Terms of Service
             </Link>
           </div>

@@ -6,7 +6,7 @@ import { ArrowRight, Phone } from 'lucide-react'
 
 export default function CTABanner() {
   return (
-    <section className="relative overflow-hidden pt-16 pb-12 md:pt-20 md:pb-14">
+    <section className="relative overflow-hidden pb-8 pt-24 sm:pb-10 sm:pt-16 md:pb-14 md:pt-20">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#052656] via-[#083070] to-[#052656]" />
       <div className="absolute inset-0 opacity-10"
@@ -26,32 +26,32 @@ export default function CTABanner() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-4xl"
         >
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-white/70" />
-            <span className="text-xs uppercase tracking-[0.3em] text-white/80 font-light">
+          <div className="mb-4 flex items-center justify-center gap-2 sm:mb-5 sm:gap-3">
+            <span className="h-px w-6 bg-white/70 sm:w-8" />
+            <span className="text-[10px] font-light uppercase tracking-[0.24em] text-white/80 sm:text-xs sm:tracking-[0.3em]">
               Take the First Step
             </span>
-            <span className="h-px w-8 bg-white/70" />
+            <span className="h-px w-6 bg-white/70 sm:w-8" />
           </div>
 
           <h2
-            className="mb-5 font-serif text-4xl leading-tight text-white md:text-5xl lg:text-6xl"
+            className="mb-4 font-serif text-[2.35rem] leading-[1.08] text-white sm:mb-5 sm:text-4xl md:text-5xl lg:text-6xl"
             style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
           >
-            Your Legal Matter Deserves<br />
+            <span className="block">Your Legal Matter Deserves</span>
             <em className="text-gradient not-italic">Expert Attention</em>
           </h2>
 
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-white/65">
+          <p className="mx-auto mb-6 max-w-[34rem] text-[15px] leading-relaxed text-white/65 sm:mb-8 sm:text-lg">
             Schedule a confidential consultation with our attorneys today. We'll assess your situation and chart the clearest path forward.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="btn-primary">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+            <Link href="/contact" className="btn-primary !w-auto min-w-[15rem] px-5 sm:w-auto">
               <span>Book a Consultation</span>
               <ArrowRight className="w-4 h-4 relative z-10" />
             </Link>
-            <a href="tel:+97714XXXXXX" className="btn-outline">
+            <a href="tel:+97714XXXXXX" className="btn-outline !w-auto min-w-[15rem] px-5 sm:w-auto">
               <Phone className="w-4 h-4" />
               <span>Call Us Now</span>
             </a>

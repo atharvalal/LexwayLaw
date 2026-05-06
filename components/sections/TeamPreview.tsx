@@ -47,7 +47,7 @@ export default function TeamPreview() {
           subtitle="A collective of accomplished legal minds, each bringing decades of specialized expertise to your cause."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((member, i) => (
             <motion.div
               key={member.name}
@@ -58,7 +58,7 @@ export default function TeamPreview() {
               className="group relative"
             >
               {/* Image container */}
-              <div className="relative overflow-hidden mb-5 aspect-[3/4]">
+              <div className="relative mb-5 overflow-hidden aspect-[3/4]">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -72,7 +72,7 @@ export default function TeamPreview() {
                 {/* LinkedIn */}
                 <a
                   href={member.linkedin}
-                  className="absolute top-4 right-4 w-8 h-8 bg-[#0B011C]/80 border border-[#FFFFFF]/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-[#FFFFFF]/20"
+                  className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center border border-[#FFFFFF]/20 bg-[#0B011C]/80 opacity-100 transition-all duration-300 hover:bg-[#FFFFFF]/20 sm:opacity-0 sm:group-hover:opacity-100"
                 >
                   <Linkedin className="w-3.5 h-3.5 text-[#FFFFFF]" />
                 </a>
@@ -92,7 +92,7 @@ export default function TeamPreview() {
                 >
                   {member.name}
                 </h3>
-                <p className="text-white/35 text-xs">{member.specialization}</p>
+                <p className="text-xs text-white/35">{member.specialization}</p>
               </div>
             </motion.div>
           ))}

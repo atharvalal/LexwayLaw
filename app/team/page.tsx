@@ -65,7 +65,7 @@ export default function TeamPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-36 md:pb-24">
+      <section className="page-header relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#052656]/40 to-[#0B011C]" />
         <div className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -75,15 +75,15 @@ export default function TeamPage() {
         />
         <div className="container-custom relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="page-eyebrow">
               <span className="w-8 h-px bg-[#FFFFFF]" />
-              <span className="text-[#FFFFFF] text-xs tracking-[0.3em] uppercase">Our Counsel</span>
+              <span className="text-[10px] uppercase tracking-[0.24em] text-[#FFFFFF] sm:text-xs sm:tracking-[0.3em]">Our Counsel</span>
               <span className="w-8 h-px bg-[#FFFFFF]" />
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl text-white mb-6" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
+            <h1 className="page-title font-serif text-white" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
               Our <em className="text-gradient not-italic">Attorneys</em>
             </h1>
-            <p className="text-white/50 text-lg max-w-xl mx-auto">
+            <p className="page-subtitle max-w-xl text-white/50">
               Each of our attorneys brings specialized expertise, academic distinction, and a genuine commitment to client outcomes.
             </p>
           </motion.div>
@@ -93,7 +93,7 @@ export default function TeamPage() {
       {/* Team grid */}
       <section className="pb-20 md:pb-24">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {attorneys.map((attorney, i) => (
               <motion.div
                 key={attorney.name}
@@ -114,11 +114,11 @@ export default function TeamPage() {
                   <div className="absolute inset-0 border border-transparent group-hover:border-[#FFFFFF]/20 transition-all duration-500" />
 
                   {/* Social links */}
-                  <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                    <a href="#" className="w-9 h-9 bg-[#0B011C]/90 border border-[#FFFFFF]/30 flex items-center justify-center hover:bg-[#FFFFFF]/20 transition-colors">
+                  <div className="absolute bottom-4 left-4 right-4 flex translate-y-0 gap-2 opacity-100 transition-all duration-300 sm:translate-y-2 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
+                    <a href="#" className="flex h-9 w-9 items-center justify-center border border-[#FFFFFF]/30 bg-[#0B011C]/90 transition-colors hover:bg-[#FFFFFF]/20">
                       <Linkedin className="w-3.5 h-3.5 text-[#FFFFFF]" />
                     </a>
-                    <a href="#" className="w-9 h-9 bg-[#0B011C]/90 border border-[#FFFFFF]/30 flex items-center justify-center hover:bg-[#FFFFFF]/20 transition-colors">
+                    <a href="#" className="flex h-9 w-9 items-center justify-center border border-[#FFFFFF]/30 bg-[#0B011C]/90 transition-colors hover:bg-[#FFFFFF]/20">
                       <Mail className="w-3.5 h-3.5 text-[#FFFFFF]" />
                     </a>
                   </div>
@@ -135,7 +135,7 @@ export default function TeamPage() {
                   </h3>
                   <p className="text-white/40 text-xs mb-4">{attorney.specialization}</p>
                   <p className="text-white/35 text-sm leading-relaxed mb-4">{attorney.bio}</p>
-                  <div className="flex gap-6 text-xs text-white/30">
+                  <div className="flex flex-col gap-1 text-xs text-white/30 sm:flex-row sm:gap-6">
                     <span>{attorney.education}</span>
                     <span className="text-[#FFFFFF]/50">{attorney.experience}</span>
                   </div>

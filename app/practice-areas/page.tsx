@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Building2, Gavel, Home, Users, Scale, Shield, FileText, Handshake } from 'lucide-react'
+import { Building2, Gavel, Home, Users, Scale, Shield } from 'lucide-react'
 import CTABanner from '@/components/sections/CTABanner'
 
 const areas = [
@@ -53,7 +53,7 @@ export default function PracticeAreasPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-36 md:pb-24">
+      <section className="page-header relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#052656]/40 to-[#0B011C]" />
         <div className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -63,15 +63,15 @@ export default function PracticeAreasPage() {
         />
         <div className="container-custom relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="page-eyebrow">
               <span className="w-8 h-px bg-[#FFFFFF]" />
-              <span className="text-[#FFFFFF] text-xs tracking-[0.3em] uppercase">Legal Services</span>
+              <span className="text-[10px] uppercase tracking-[0.24em] text-[#FFFFFF] sm:text-xs sm:tracking-[0.3em]">Legal Services</span>
               <span className="w-8 h-px bg-[#FFFFFF]" />
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl text-white mb-6" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
+            <h1 className="page-title font-serif text-white" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
               Practice <em className="text-gradient not-italic">Areas</em>
             </h1>
-            <p className="text-white/50 text-lg max-w-2xl mx-auto">
+            <p className="page-subtitle text-white/50">
               Deep expertise across the legal disciplines that matter most to individuals, families, and businesses.
             </p>
           </motion.div>
@@ -91,13 +91,13 @@ export default function PracticeAreasPage() {
                 transition={{ duration: 0.6 }}
                 className="bg-[#0B011C] hover:bg-[#0d0330] transition-colors duration-300 group"
               >
-                <div className="p-10 md:p-14 grid md:grid-cols-5 gap-10">
+                <div className="grid gap-8 p-6 sm:p-8 md:grid-cols-5 md:gap-10 md:p-12 lg:p-14">
                   {/* Icon + title */}
                   <div className="md:col-span-2">
                     <div className="w-14 h-14 border border-[#FFFFFF]/20 group-hover:border-[#FFFFFF]/60 flex items-center justify-center mb-6 transition-all duration-300">
                       <area.icon className="w-6 h-6 text-[#FFFFFF]/60 group-hover:text-[#FFFFFF] transition-colors" strokeWidth={1.5} />
                     </div>
-                    <h2 className="font-serif text-3xl text-white group-hover:text-[#FFFFFF] transition-colors mb-4" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
+                    <h2 className="mb-4 font-serif text-2xl text-white transition-colors group-hover:text-[#FFFFFF] sm:text-3xl" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
                       {area.title}
                     </h2>
                     <p className="text-white/40 text-sm leading-relaxed">{area.description}</p>
@@ -105,10 +105,10 @@ export default function PracticeAreasPage() {
 
                   {/* Services */}
                   <div className="md:col-span-3">
-                    <div className="text-[#FFFFFF]/60 text-[10px] tracking-[0.3em] uppercase mb-5">Services Include</div>
-                    <div className="grid sm:grid-cols-2 gap-3">
+                    <div className="mb-5 text-[10px] uppercase tracking-[0.3em] text-[#FFFFFF]/60">Services Include</div>
+                    <div className="grid gap-3 sm:grid-cols-2">
                       {area.services.map((service) => (
-                        <div key={service} className="flex items-center gap-3 text-white/50 text-sm">
+                        <div key={service} className="flex items-start gap-3 text-sm text-white/50">
                           <span className="w-1.5 h-1.5 bg-[#FFFFFF]/50 rounded-full shrink-0" />
                           {service}
                         </div>

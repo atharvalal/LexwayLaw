@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Page header */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-36 md:pb-24">
+      <section className="page-header relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#052656]/40 to-[#0B011C]" />
         <div className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -26,15 +26,15 @@ export default function AboutPage() {
         />
         <div className="container-custom relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="page-eyebrow">
               <span className="w-8 h-px bg-[#FFFFFF]" />
-              <span className="text-[#FFFFFF] text-xs tracking-[0.3em] uppercase">Our Firm</span>
+              <span className="text-[10px] uppercase tracking-[0.24em] text-[#FFFFFF] sm:text-xs sm:tracking-[0.3em]">Our Firm</span>
               <span className="w-8 h-px bg-[#FFFFFF]" />
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl text-white mb-6" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
+            <h1 className="page-title font-serif text-white" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
               About <em className="text-gradient not-italic">Lexway</em>
             </h1>
-            <p className="text-white/50 text-lg max-w-2xl mx-auto">
+            <p className="page-subtitle text-white/50">
               A legacy of trusted legal counsel, built on integrity and sustained by results.
             </p>
           </motion.div>
@@ -44,13 +44,13 @@ export default function AboutPage() {
       {/* Firm intro */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid items-center gap-14 lg:grid-cols-2 xl:gap-16">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
             <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-              <div className="flex items-center gap-3 mb-6">
+              <div className="mb-6 flex items-center gap-2 sm:gap-3">
                 <span className="w-8 h-px bg-[#FFFFFF]" />
-                <span className="text-[#FFFFFF] text-xs tracking-[0.3em] uppercase font-light">Our Story</span>
+                <span className="text-[10px] uppercase tracking-[0.24em] text-[#FFFFFF] font-light sm:text-xs sm:tracking-[0.3em]">Our Story</span>
               </div>
-              <h2 className="font-serif text-4xl md:text-5xl text-white mb-6" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
+              <h2 className="mb-6 font-serif text-3xl text-white sm:text-4xl md:text-5xl" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
                 Established with <em className="text-gradient not-italic">Purpose</em>
               </h2>
               <p className="text-white/50 leading-relaxed mb-5">
@@ -65,18 +65,18 @@ export default function AboutPage() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {[
                   { value: '2010', label: 'Year Founded' },
                   { value: '12', label: 'Expert Attorneys' },
                   { value: '500+', label: 'Cases Resolved' },
                   { value: '5', label: 'Practice Areas' },
                 ].map((stat) => (
-                  <div key={stat.label} className="bg-glass-blue p-7 text-center">
-                    <div className="text-4xl font-serif text-gradient mb-2" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
+                  <div key={stat.label} className="bg-glass-blue p-5 text-center sm:p-7">
+                    <div className="mb-2 text-3xl font-serif text-gradient sm:text-4xl" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
                       {stat.value}
                     </div>
-                    <div className="text-white/40 text-xs tracking-widest uppercase">{stat.label}</div>
+                    <div className="text-[10px] uppercase tracking-[0.18em] text-white/40 sm:text-xs sm:tracking-widest">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -88,7 +88,7 @@ export default function AboutPage() {
       {/* Mission & Vision */}
       <section className="section-padding bg-[#060110]">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid gap-6 md:grid-cols-2 md:gap-8">
             {[
               {
                 icon: Target,
@@ -109,7 +109,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="bg-glass p-10 border-t-2 border-[#FFFFFF]/40"
+                className="border-t-2 border-[#FFFFFF]/40 bg-glass p-6 sm:p-8 md:p-10"
               >
                 <item.icon className="w-8 h-8 text-[#FFFFFF] mb-6" strokeWidth={1.5} />
                 <div className="text-[#FFFFFF]/60 text-xs tracking-[0.3em] uppercase mb-3">{item.label}</div>
@@ -132,7 +132,7 @@ export default function AboutPage() {
             titleHighlight="Values"
             subtitle="These principles have guided every decision we have made since our founding."
           />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {values.map((v, i) => (
               <motion.div
                 key={v.title}
@@ -140,7 +140,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-glass-blue p-7 text-center group hover:border-[#FFFFFF]/30 transition-all duration-300 card-hover"
+                className="group bg-glass-blue p-6 text-center transition-all duration-300 hover:border-[#FFFFFF]/30 card-hover sm:p-7"
               >
                 <div className="w-12 h-12 border border-[#FFFFFF]/20 flex items-center justify-center mx-auto mb-5 group-hover:border-[#FFFFFF]/60 transition-colors">
                   <v.icon className="w-5 h-5 text-[#FFFFFF]/60 group-hover:text-[#FFFFFF] transition-colors" strokeWidth={1.5} />

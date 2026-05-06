@@ -35,7 +35,7 @@ export default function WhyChoose() {
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-3/4 bg-[#052656]/10 blur-[100px] rounded-full" />
 
       <div className="container-custom relative z-10">
-        <div className="grid items-center gap-14 lg:grid-cols-2 xl:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -43,14 +43,14 @@ export default function WhyChoose() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center gap-3 mb-6">
+            <div className="mb-6 flex items-center gap-2 sm:gap-3">
               <span className="h-px w-8 bg-[#8EA9D4]" />
-              <span className="text-xs uppercase tracking-[0.3em] text-white/70 font-light">
+              <span className="text-[10px] font-light uppercase tracking-[0.24em] text-white/70 sm:text-xs sm:tracking-[0.3em]">
                 Why Lexway
               </span>
             </div>
             <h2
-              className="font-serif text-5xl md:text-6xl leading-tight text-white mb-6"
+              className="mb-6 font-serif text-4xl leading-tight text-white md:text-6xl"
               style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
             >
               Law Built on{' '}
@@ -67,9 +67,9 @@ export default function WhyChoose() {
             </Link>
 
             {/* Decorative quote */}
-            <div className="mt-10 border-l-2 border-[#8EA9D4]/45 pl-6">
+            <div className="mt-10 border-l-2 border-[#8EA9D4]/45 pl-5 sm:pl-6">
               <p
-                className="text-white/60 text-lg italic leading-relaxed"
+                className="text-base italic leading-relaxed text-white/60 sm:text-lg"
                 style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
               >
                 "Justice delayed is justice denied. We ensure neither happens to our clients."
@@ -81,7 +81,7 @@ export default function WhyChoose() {
           </motion.div>
 
           {/* Right: pillars */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
             {pillars.map((p, i) => (
               <motion.div
                 key={p.number}
@@ -89,7 +89,7 @@ export default function WhyChoose() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group bg-glass-blue p-5 transition-all duration-300 hover:border-white/20 md:p-6"
+                className="group bg-glass-blue p-5 transition-all duration-300 hover:border-white/20 sm:p-6"
               >
                 <div
                   className="text-[#FFFFFF]/20 text-4xl font-serif mb-4 group-hover:text-[#FFFFFF]/40 transition-colors"

@@ -46,7 +46,7 @@ export default function BlogPreview() {
           subtitle="Staying ahead of legal developments so you can focus on what matters most."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-3">
           {articles.map((article, i) => (
             <motion.article
               key={article.slug}
@@ -54,7 +54,7 @@ export default function BlogPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-glass-blue p-7 hover:border-[#FFFFFF]/30 transition-all duration-400 card-hover cursor-pointer"
+              className="group cursor-pointer bg-glass-blue p-6 transition-all duration-400 hover:border-[#FFFFFF]/30 card-hover sm:p-7"
             >
               <Link href={`/blog/${article.slug}`}>
                 {/* Tag */}
@@ -70,8 +70,8 @@ export default function BlogPreview() {
                 </h3>
                 <p className="text-white/40 text-sm leading-relaxed mb-6">{article.excerpt}</p>
 
-                <div className="flex items-center justify-between text-white/25 text-xs">
-                  <div className="flex items-center gap-4">
+                <div className="flex flex-col gap-4 text-xs text-white/25 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                     <span className="flex items-center gap-1.5">
                       <Calendar className="w-3 h-3" />
                       {article.date}
@@ -81,7 +81,7 @@ export default function BlogPreview() {
                       {article.readTime}
                     </span>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-[#FFFFFF]/40 group-hover:text-[#FFFFFF] group-hover:translate-x-1 transition-all duration-300" />
+                  <ArrowRight className="h-4 w-4 text-[#FFFFFF]/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#FFFFFF]" />
                 </div>
               </Link>
             </motion.article>

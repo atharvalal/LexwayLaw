@@ -20,7 +20,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-36 md:pb-24">
+      <section className="page-header relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#052656]/40 to-[#0B011C]" />
         <div className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -30,15 +30,15 @@ export default function ContactPage() {
         />
         <div className="container-custom relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="page-eyebrow">
               <span className="w-8 h-px bg-[#FFFFFF]" />
-              <span className="text-[#FFFFFF] text-xs tracking-[0.3em] uppercase">Get In Touch</span>
+              <span className="text-[10px] uppercase tracking-[0.24em] text-[#FFFFFF] sm:text-xs sm:tracking-[0.3em]">Get In Touch</span>
               <span className="w-8 h-px bg-[#FFFFFF]" />
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl text-white mb-6" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
+            <h1 className="page-title font-serif text-white" style={{ fontFamily: 'Playfair Display, Georgia, serif' }}>
               Contact <em className="text-gradient not-italic">Us</em>
             </h1>
-            <p className="text-white/50 text-lg max-w-xl mx-auto">
+            <p className="page-subtitle max-w-xl text-white/50">
               Schedule a consultation or reach out with any legal query. We respond within 24 hours.
             </p>
           </motion.div>
@@ -79,7 +79,7 @@ export default function ContactPage() {
                   lines: ['Sunday – Friday', '9:00 AM – 6:00 PM', 'Appointments Preferred'],
                 },
               ].map((item) => (
-                <div key={item.title} className="bg-glass-blue p-7 flex gap-5">
+                <div key={item.title} className="flex gap-4 bg-glass-blue p-5 sm:gap-5 sm:p-7">
                   <div className="w-10 h-10 border border-[#FFFFFF]/20 flex items-center justify-center shrink-0">
                     <item.icon className="w-4 h-4 text-[#FFFFFF]" strokeWidth={1.5} />
                   </div>
@@ -101,7 +101,7 @@ export default function ContactPage() {
               transition={{ duration: 0.7 }}
               className="lg:col-span-3"
             >
-              <div className="bg-glass p-10 md:p-12">
+              <div className="bg-glass p-6 sm:p-8 md:p-12">
                 <div className="mb-8">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="w-6 h-px bg-[#FFFFFF]" />
