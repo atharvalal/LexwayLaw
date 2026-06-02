@@ -1,36 +1,29 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, ChevronDown } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-end overflow-hidden lg:min-h-screen lg:items-center">
+    <section className="relative flex min-h-[88svh] items-end overflow-hidden lg:min-h-[92vh] lg:items-center">
       {/* Background */}
       <div className="absolute inset-0">
-        {/* Gradient layers */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B011C] via-[#0d0328] to-[#052656]" />
-        {/* Geometric accent */}
-        <div className="absolute right-0 top-0 hidden h-full w-1/2 opacity-25 md:block">
-          <svg viewBox="0 0 600 800" className="w-full h-full" preserveAspectRatio="none">
-            <polygon points="200,0 600,0 600,800 400,800" fill="#052656" />
-          </svg>
-        </div>
-        {/* Radial glow */}
-        <div className="absolute left-1/2 top-[44%] h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#052656]/35 blur-[90px] sm:h-[620px] sm:w-[620px] md:top-1/2 md:h-[800px] md:w-[800px] md:blur-[120px]" />
-        <div className="absolute right-[5%] top-[14%] h-[220px] w-[220px] rounded-full bg-white/10 blur-[70px] sm:right-1/4 sm:top-1/4 sm:h-[360px] sm:w-[360px] sm:blur-[90px]" />
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`,
-            backgroundSize: '48px 48px',
-          }}
+        <Image
+          src="/images/lexway-hero.png"
+          alt="Refined legal office interior for Lexway Law Associates"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
+        <div className="absolute inset-0 bg-[#05010d]/55" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#05010d] via-[#05010d]/82 to-[#05010d]/20" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#060110] to-transparent" />
       </div>
 
-      <div className="container-custom relative z-10 pt-28 pb-16 sm:pb-20 md:pt-32 md:pb-24">
+      <div className="container-custom relative z-10 pt-32 pb-12 sm:pt-36 sm:pb-14 md:pt-36 md:pb-16">
         <div className="max-w-5xl">
           {/* Eyebrow */}
           <motion.div
@@ -53,10 +46,10 @@ export default function Hero() {
             className="mb-6 font-serif leading-[0.98] sm:mb-8 sm:leading-[1.05]"
             style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
           >
-            <span className="block text-[3.25rem] text-white sm:text-6xl md:text-7xl lg:text-8xl">
+            <span className="block text-[3.25rem] text-white sm:text-6xl md:text-6xl lg:text-7xl">
               Trusted
             </span>
-            <span className="block text-[3.25rem] sm:text-6xl md:text-7xl lg:text-8xl">
+            <span className="block text-[3.25rem] sm:text-6xl md:text-6xl lg:text-7xl">
               <em className="text-gradient not-italic">Legal</em>{' '}
               <span className="text-white">Solutions</span>
             </span>
@@ -67,7 +60,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="mb-8 max-w-2xl text-base leading-relaxed text-white/60 sm:mb-10 sm:text-lg md:text-xl"
+            className="mb-8 max-w-2xl text-base leading-relaxed text-white/68 sm:mb-10 sm:text-lg md:text-xl font-serif"
           >
             Lexway Law Associates delivers expert legal counsel grounded in integrity,
             precision, and a relentless commitment to your interests. From corporate
@@ -95,7 +88,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-12 grid grid-cols-2 gap-x-4 gap-y-6 sm:mt-16 sm:flex sm:flex-wrap sm:gap-x-8 sm:gap-y-6 md:gap-x-10"
+            className="mt-8 grid grid-cols-2 gap-x-4 gap-y-5 sm:mt-10 sm:flex sm:flex-wrap sm:gap-x-8 sm:gap-y-5 md:gap-x-10"
           >
             {[
               { value: '15+', label: 'Years of Excellence' },
@@ -105,7 +98,7 @@ export default function Hero() {
             ].map((stat) => (
               <div key={stat.label} className="min-w-0 sm:min-w-[140px]">
                 <div
-                  className="text-3xl font-serif text-gradient md:text-4xl"
+                  className="text-2xl font-serif text-gradient md:text-3xl"
                   style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
                 >
                   {stat.value}
@@ -118,22 +111,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
-      >
-        <span className="text-white/25 text-[10px] tracking-[0.3em] uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-        >
-          <ChevronDown className="w-4 h-4 text-white/45" />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }

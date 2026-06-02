@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Calendar, Clock, ArrowRight } from 'lucide-react'
@@ -57,8 +58,11 @@ const articles = [
 ]
 
 export default function BlogPage() {
+  const [visibleCount, setVisibleCount] = useState(3)
   const featured = articles[0]
-  const rest = articles.slice(1)
+  const visibleRest = articles.slice(1, visibleCount)
+  const hasMoreArticles = visibleCount < articles.length
+  const isExpanded = visibleCount === articles.length
 
   return (
     <>
@@ -117,7 +121,7 @@ export default function BlogPage() {
 
           {/* Grid */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {rest.map((article, i) => (
+            {visibleRest.map((article, i) => (
               <motion.article
                 key={article.slug}
                 initial={{ opacity: 0, y: 30 }}
@@ -144,6 +148,19 @@ export default function BlogPage() {
               </motion.article>
             ))}
           </div>
+
+          {(hasMoreArticles || isExpanded) && (
+            <div className="relative z-10 mt-20 text-center">
+              <button
+                type="button"
+                onClick={() => setVisibleCount(isExpanded ? 3 : articles.length)}
+                className="btn-outline"
+              >
+                <span>{isExpanded ? 'Show Less Insights' : 'Show More Insights'}</span>
+                <ArrowRight className={`h-4 w-4 transition-transform ${isExpanded ? '-rotate-90' : ''}`} />
+              </button>
+            </div>
+          )}
         </div>
       </section>
     </>

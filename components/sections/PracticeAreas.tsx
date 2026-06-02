@@ -52,12 +52,12 @@ const areas = [
 
 export default function PracticeAreas() {
   return (
-    <section className="section-padding bg-[#060110]">
+    <section id="services" className="section-padding scroll-mt-28 bg-[#060110]">
       <div className="container-custom">
         <SectionHeader
-          eyebrow="What We Do"
-          title="Areas of"
-          titleHighlight="Practice"
+          eyebrow="Our Services"
+          title="Legal"
+          titleHighlight="Services"
           subtitle="Our team of seasoned attorneys brings deep expertise across a comprehensive range of legal disciplines."
         />
 

@@ -58,11 +58,11 @@ export default function TeamPreview() {
               className="group relative"
             >
               {/* Image container */}
-              <div className="relative mb-5 overflow-hidden aspect-[3/4]">
+              <div className="relative mb-4 aspect-[4/3] overflow-hidden sm:mb-5 sm:aspect-[3/4]">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  className="h-full w-full object-cover object-[center_20%] grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B011C] via-[#0B011C]/20 to-transparent" />

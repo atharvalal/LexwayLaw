@@ -1,4 +1,4 @@
-// File: /Users/athu/Downloads/lexway/app/layout.tsx
+// File: /Users/athu/Desktop/lexway/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

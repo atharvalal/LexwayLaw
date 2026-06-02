@@ -104,11 +104,11 @@ export default function TeamPage() {
                 className="group"
               >
                 {/* Image */}
-                <div className="relative overflow-hidden mb-6 aspect-[3/4]">
+                <div className="relative mb-5 aspect-[4/3] overflow-hidden sm:mb-6 sm:aspect-[3/4]">
                   <img
                     src={attorney.image}
                     alt={attorney.name}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    className="h-full w-full object-cover object-[center_20%] grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B011C] via-transparent to-transparent" />
                   <div className="absolute inset-0 border border-transparent group-hover:border-[#FFFFFF]/20 transition-all duration-500" />
