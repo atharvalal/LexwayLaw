@@ -1,0 +1,96 @@
+export const attorneys = [
+  {
+    slug: 'rohan-sharma',
+    name: 'Adv. Rohan Sharma',
+    title: 'Founding Partner',
+    specialization: 'Corporate & Commercial Law',
+    education: 'LL.M., Harvard Law School',
+    experience: '20+ years',
+    bio: "Rohan founded Lexway with a vision to build a law firm defined by excellence and accessibility. He leads our corporate practice and has advised on some of Nepal's most significant M&A transactions.",
+    profile:
+      'Rohan works with founders, boards, family-owned enterprises, and institutional investors on high-value commercial decisions. His practice focuses on deal structuring, governance, regulatory strategy, and dispute prevention for companies operating in Nepal.',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face',
+    email: 'rohan@lexway.com.np',
+    linkedin: '#',
+    focus: ['Mergers & acquisitions', 'Corporate governance', 'Commercial contracts'],
+  },
+  {
+    slug: 'priya-adhikari',
+    name: 'Adv. Priya Adhikari',
+    title: 'Senior Partner',
+    specialization: 'Litigation & Arbitration',
+    education: 'LL.B., Tribhuvan University',
+    experience: '18 years',
+    bio: "Priya is one of Kathmandu's most respected litigators, with an impressive record across commercial disputes, arbitration proceedings, and appellate advocacy.",
+    profile:
+      'Priya represents clients before courts, tribunals, and arbitral forums in complex commercial and civil disputes. She is known for disciplined case preparation, clear courtroom advocacy, and pragmatic settlement strategy.',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop&crop=face',
+    email: 'priya@lexway.com.np',
+    linkedin: '#',
+    focus: ['Commercial litigation', 'Arbitration proceedings', 'Appellate advocacy'],
+  },
+  {
+    slug: 'vikram-thapa',
+    name: 'Adv. Vikram Thapa',
+    title: 'Associate Partner',
+    specialization: 'Property & Real Estate Law',
+    education: 'LL.B., Kathmandu School of Law',
+    experience: '14 years',
+    bio: 'Vikram heads our property practice, advising clients on complex land transactions, development projects, and title disputes across Nepal.',
+    profile:
+      'Vikram advises buyers, developers, landowners, and businesses on real estate transactions from diligence through closing. He also handles title disputes and documentation for development and leasing matters.',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face',
+    email: 'vikram@lexway.com.np',
+    linkedin: '#',
+    focus: ['Land transactions', 'Title disputes', 'Real estate development'],
+  },
+  {
+    slug: 'sujata-rana',
+    name: 'Adv. Sujata Rana',
+    title: 'Senior Associate',
+    specialization: 'Family & Personal Law',
+    education: 'LL.M., Delhi University',
+    experience: '12 years',
+    bio: 'With sensitivity and precision, Sujata guides clients through family law matters including divorce, custody, and succession planning.',
+    profile:
+      'Sujata supports individuals and families through sensitive personal matters with discretion and steady judgment. Her work covers family disputes, inheritance planning, custody issues, and negotiated resolutions.',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop&crop=face',
+    email: 'sujata@lexway.com.np',
+    linkedin: '#',
+    focus: ['Divorce and custody', 'Succession planning', 'Family settlements'],
+  },
+  {
+    slug: 'anil-bhandari',
+    name: 'Adv. Anil Bhandari',
+    title: 'Associate',
+    specialization: 'Criminal Defense',
+    education: 'LL.B., Purbanchal University',
+    experience: '9 years',
+    bio: 'Anil brings tenacity and strategic thinking to our criminal defense practice, having represented clients across a wide spectrum of criminal matters.',
+    profile:
+      'Anil assists clients from investigation through trial with a careful focus on procedure, evidence, and rights protection. He works closely with families and businesses facing urgent criminal law issues.',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop&crop=face',
+    email: 'anil@lexway.com.np',
+    linkedin: '#',
+    focus: ['Criminal defense', 'Bail proceedings', 'Evidence review'],
+  },
+  {
+    slug: 'meena-karki',
+    name: 'Adv. Meena Karki',
+    title: 'Associate',
+    specialization: 'Corporate & Regulatory',
+    education: 'LL.B., Tribhuvan University',
+    experience: '7 years',
+    bio: 'Meena advises clients on regulatory compliance and corporate governance, bringing meticulous attention to detail to every engagement.',
+    profile:
+      'Meena helps businesses maintain compliance across formation, licensing, filings, governance, and operational changes. Her work is especially useful for growing companies that need legal structure without slowing execution.',
+    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=500&fit=crop&crop=face',
+    email: 'meena@lexway.com.np',
+    linkedin: '#',
+    focus: ['Regulatory compliance', 'Company filings', 'Corporate governance'],
+  },
+]
+
+export function getAttorneyBySlug(slug: string) {
+  return attorneys.find((attorney) => attorney.slug === slug)
+}

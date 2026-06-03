@@ -1,65 +1,10 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Linkedin, Mail } from 'lucide-react'
+import { ArrowRight, Linkedin, Mail } from 'lucide-react'
 import CTABanner from '@/components/sections/CTABanner'
-
-const attorneys = [
-  {
-    name: 'Adv. Rohan Sharma',
-    title: 'Founding Partner',
-    specialization: 'Corporate & Commercial Law',
-    education: 'LL.M., Harvard Law School',
-    experience: '20+ years',
-    bio: 'Rohan founded Lexway with a vision to build a law firm defined by excellence and accessibility. He leads our corporate practice and has advised on some of Nepal\'s most significant M&A transactions.',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face',
-  },
-  {
-    name: 'Adv. Priya Adhikari',
-    title: 'Senior Partner',
-    specialization: 'Litigation & Arbitration',
-    education: 'LL.B., Tribhuvan University',
-    experience: '18 years',
-    bio: 'Priya is one of Kathmandu\'s most respected litigators, with an impressive record across commercial disputes, arbitration proceedings, and appellate advocacy.',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop&crop=face',
-  },
-  {
-    name: 'Adv. Vikram Thapa',
-    title: 'Associate Partner',
-    specialization: 'Property & Real Estate Law',
-    education: 'LL.B., Kathmandu School of Law',
-    experience: '14 years',
-    bio: 'Vikram heads our property practice, advising clients on complex land transactions, development projects, and title disputes across Nepal.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face',
-  },
-  {
-    name: 'Adv. Sujata Rana',
-    title: 'Senior Associate',
-    specialization: 'Family & Personal Law',
-    education: 'LL.M., Delhi University',
-    experience: '12 years',
-    bio: 'With sensitivity and precision, Sujata guides clients through family law matters including divorce, custody, and succession planning.',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop&crop=face',
-  },
-  {
-    name: 'Adv. Anil Bhandari',
-    title: 'Associate',
-    specialization: 'Criminal Defense',
-    education: 'LL.B., Purbanchal University',
-    experience: '9 years',
-    bio: 'Anil brings tenacity and strategic thinking to our criminal defense practice, having represented clients across a wide spectrum of criminal matters.',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop&crop=face',
-  },
-  {
-    name: 'Adv. Meena Karki',
-    title: 'Associate',
-    specialization: 'Corporate & Regulatory',
-    education: 'LL.B., Tribhuvan University',
-    experience: '7 years',
-    bio: 'Meena advises clients on regulatory compliance and corporate governance, bringing meticulous attention to detail to every engagement.',
-    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=500&fit=crop&crop=face',
-  },
-]
+import { attorneys } from '@/data/team'
 
 export default function TeamPage() {
   return (
@@ -95,7 +40,7 @@ export default function TeamPage() {
         <div className="container-custom">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {attorneys.map((attorney, i) => (
-              <motion.div
+              <motion.article
                 key={attorney.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -105,27 +50,29 @@ export default function TeamPage() {
               >
                 {/* Image */}
                 <div className="relative mb-5 aspect-[4/3] overflow-hidden sm:mb-6 sm:aspect-[3/4]">
-                  <img
-                    src={attorney.image}
-                    alt={attorney.name}
-                    className="h-full w-full object-cover object-[center_20%] grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B011C] via-transparent to-transparent" />
-                  <div className="absolute inset-0 border border-transparent group-hover:border-[#FFFFFF]/20 transition-all duration-500" />
+                  <Link href={`/team/${attorney.slug}`} className="block h-full">
+                    <img
+                      src={attorney.image}
+                      alt={attorney.name}
+                      className="h-full w-full object-cover object-[center_20%] grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B011C] via-transparent to-transparent" />
+                    <div className="absolute inset-0 border border-transparent transition-all duration-500 group-hover:border-[#FFFFFF]/20" />
+                  </Link>
 
                   {/* Social links */}
                   <div className="absolute bottom-4 left-4 right-4 flex translate-y-0 gap-2 opacity-100 transition-all duration-300 sm:translate-y-2 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
-                    <a href="#" className="flex h-9 w-9 items-center justify-center border border-[#FFFFFF]/30 bg-[#0B011C]/90 transition-colors hover:bg-[#FFFFFF]/20">
+                    <a href={attorney.linkedin} aria-label={`${attorney.name} on LinkedIn`} className="flex h-9 w-9 items-center justify-center border border-[#FFFFFF]/30 bg-[#0B011C]/90 transition-colors hover:bg-[#FFFFFF]/20">
                       <Linkedin className="w-3.5 h-3.5 text-[#FFFFFF]" />
                     </a>
-                    <a href="#" className="flex h-9 w-9 items-center justify-center border border-[#FFFFFF]/30 bg-[#0B011C]/90 transition-colors hover:bg-[#FFFFFF]/20">
+                    <a href={`mailto:${attorney.email}`} aria-label={`Email ${attorney.name}`} className="flex h-9 w-9 items-center justify-center border border-[#FFFFFF]/30 bg-[#0B011C]/90 transition-colors hover:bg-[#FFFFFF]/20">
                       <Mail className="w-3.5 h-3.5 text-[#FFFFFF]" />
                     </a>
                   </div>
                 </div>
 
                 {/* Info */}
-                <div>
+                <Link href={`/team/${attorney.slug}`} className="block">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="w-4 h-px bg-[#FFFFFF]/50" />
                     <span className="text-[#FFFFFF]/60 text-[10px] tracking-[0.25em] uppercase">{attorney.title}</span>
@@ -139,8 +86,12 @@ export default function TeamPage() {
                     <span>{attorney.education}</span>
                     <span className="text-[#FFFFFF]/50">{attorney.experience}</span>
                   </div>
-                </div>
-              </motion.div>
+                  <div className="mt-4 flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-white/50 transition-colors group-hover:text-white">
+                    <span>View Profile</span>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
+              </motion.article>
             ))}
           </div>
         </div>
