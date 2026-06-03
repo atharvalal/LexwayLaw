@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[88svh] items-end overflow-hidden lg:min-h-[92vh] lg:items-center">
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden pb-12 pt-32 sm:min-h-[88svh] sm:pb-14 sm:pt-36 md:pb-16 lg:min-h-[92vh] lg:pb-0 lg:pt-0">
       {/* Background */}
       <div className="absolute inset-0">
         <Image
@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#060110] to-transparent" />
       </div>
 
-      <div className="container-custom relative z-10 pt-32 pb-12 sm:pt-36 sm:pb-14 md:pt-36 md:pb-16">
+      <div className="container-custom relative z-10">
         <div className="max-w-5xl">
           {/* Eyebrow */}
           <motion.div
