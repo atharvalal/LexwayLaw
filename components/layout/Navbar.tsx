@@ -10,7 +10,6 @@ const navLinks = [
   { href: '/practice-areas', label: 'Our Services' },
   { href: '/team', label: 'Our Team' },
   { href: '/blog', label: 'Insights' },
-  { href: '/contact', label: 'Contact' },
 ]
 
 const insightLinks = [

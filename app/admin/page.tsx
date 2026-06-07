@@ -1,150 +1,71 @@
-import {
-  Cog,
-  FileStack,
-  Image as ImageIcon,
-  LayoutDashboard,
-} from 'lucide-react'
-import AdminShell from '@/components/admin/AdminShell'
+import Link from 'next/link'
+import { ArrowRight, FilePenLine, PanelBottom, Plus } from 'lucide-react'
 import AdminSectionCard from '@/components/admin/AdminSectionCard'
-import DynamicSectionsEditor from '@/components/admin/DynamicSectionsEditor'
-import MediaManagerGrid from '@/components/admin/MediaManagerGrid'
 import OverviewMetrics from '@/components/admin/OverviewMetrics'
-import PageEditorPanel from '@/components/admin/PageEditorPanel'
-import PageManagementTable from '@/components/admin/PageManagementTable'
-import SettingsPanel from '@/components/admin/SettingsPanel'
-import {
-  AdminMetric,
-  AdminNavItem,
-  EditableItem,
-  ManagedPage,
-  MediaItem,
-  SocialLinkItem,
-} from '@/components/admin/types'
-
-const navItems: AdminNavItem[] = [
-  { label: 'Dashboard', href: '#dashboard', icon: LayoutDashboard, count: '06' },
-  { label: 'Pages', href: '#pages', icon: FileStack, count: '07' },
-  { label: 'Media', href: '#media', icon: ImageIcon, count: '24' },
-  { label: 'Settings', href: '#settings', icon: Cog },
-]
-
-const metrics: AdminMetric[] = [
-  {
-    label: 'Pages Managed',
-    value: '07',
-    detail: 'Core marketing and trust-building pages in a single editing workspace.',
-  },
-  {
-    label: 'Media Assets',
-    value: '24',
-    detail: 'Logos, attorney portraits, and campaign visuals prepared for replacement.',
-  },
-  {
-    label: 'Sections Ready',
-    value: '11',
-    detail: 'Hero, services, testimonials, and global settings ready for API binding.',
-  },
-]
-
-const pages: ManagedPage[] = [
-  { name: 'Home', slug: '', status: 'Published', updatedAt: 'Today, 10:45 AM' },
-  { name: 'About', slug: 'about', status: 'Published', updatedAt: 'Yesterday' },
-  {
-    name: 'Practice Areas',
-    slug: 'practice-areas',
-    status: 'Published',
-    updatedAt: '2 days ago',
-  },
-  { name: 'Team', slug: 'team', status: 'Published', updatedAt: '3 days ago' },
-  { name: 'Blog', slug: 'blog', status: 'Draft Ready', updatedAt: 'Today, 8:10 AM' },
-  { name: 'Contact', slug: 'contact', status: 'Published', updatedAt: '4 days ago' },
-]
-
-const services: EditableItem[] = [
-  {
-    title: 'Corporate Law',
-    description: 'Entity formation, governance, compliance, and transaction advisory.',
-  },
-  {
-    title: 'Litigation',
-    description: 'Civil and commercial dispute strategy for complex, high-stakes matters.',
-  },
-  {
-    title: 'Property Law',
-    description: 'Real estate structuring, due diligence, and title dispute support.',
-  },
-]
-
-const testimonials: EditableItem[] = [
-  {
-    title: 'Chairman, Himalayan Holdings',
-    description: '“Lexway gave us sharp commercial guidance with total clarity throughout.”',
-  },
-  {
-    title: 'Private Client, Kathmandu',
-    description: '“Measured, discreet, and highly effective support during a family matter.”',
-  },
-]
-
-const mediaItems: MediaItem[] = [
-  { title: 'Hero Boardroom', type: 'Hero' },
-  { title: 'Attorney Portrait A', type: 'Team' },
-  { title: 'Office Exterior', type: 'Brand' },
-  { title: 'Consultation Room', type: 'Service' },
-]
-
-const socials: SocialLinkItem[] = [
-  { label: 'LinkedIn', value: 'https://linkedin.com/company/lexway-law' },
-  { label: 'Facebook', value: 'https://facebook.com/lexwaylaw' },
-  { label: 'X / Twitter', value: 'https://x.com/lexwaylaw' },
-]
+import { metrics, pages } from '@/components/admin/data'
 
 export default function AdminPage() {
   return (
-    <AdminShell navItems={navItems}>
-      <div id="dashboard" className="space-y-6">
-        <OverviewMetrics items={metrics} />
+    <div className="space-y-6">
+      <OverviewMetrics items={metrics} />
 
+      <div className="grid gap-6 xl:grid-cols-[1.3fr_0.7fr]">
         <AdminSectionCard
-          title="Pages Management"
-          eyebrow="Content Control"
-          description="Website page inventory with clear edit and preview affordances. Replace button actions with real routing or API hooks later."
-          className="scroll-mt-8"
+          title="Continue Editing"
+          eyebrow="Recent Pages"
+          description="Jump directly into the sections that were edited most recently."
         >
-          <div id="pages" className="space-y-6">
-            <PageManagementTable pages={pages} />
-            <PageEditorPanel />
+          <div className="space-y-3">
+            {pages.slice(0, 4).map((page) => (
+              <Link
+                key={page.slug}
+                href={`/admin/pages/${page.slug}`}
+                className="group flex items-center justify-between rounded-[1.4rem] border border-slate-200 bg-slate-50 p-4 transition-all hover:border-slate-300 hover:bg-white hover:shadow-sm"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-500">
+                    <FilePenLine className="h-4 w-4" strokeWidth={1.8} />
+                  </span>
+                  <div>
+                    <div className="text-sm font-medium text-slate-950">{page.name} Page</div>
+                    <div className="mt-1 text-xs text-slate-500">Updated {page.updatedAt}</div>
+                  </div>
+                </div>
+                <ArrowRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-1" />
+              </Link>
+            ))}
           </div>
         </AdminSectionCard>
 
         <AdminSectionCard
-          title="Dynamic Sections"
-          eyebrow="Reusable Blocks"
-          description="Structured editing surfaces for the homepage hero, service modules, and testimonial content."
+          title="Quick Actions"
+          eyebrow="Console"
+          description="Common content tasks kept within easy reach."
         >
-          <DynamicSectionsEditor services={services} testimonials={testimonials} />
-        </AdminSectionCard>
-
-        <AdminSectionCard
-          title="Media Manager"
-          eyebrow="Asset Library"
-          description="A clean UI-only media overview with upload and delete affordances for later storage integration."
-        >
-          <div id="media">
-            <MediaManagerGrid items={mediaItems} />
-          </div>
-        </AdminSectionCard>
-
-        <AdminSectionCard
-          title="Settings"
-          eyebrow="Global Configuration"
-          description="Firm details, contact points, and social destinations in one central panel."
-        >
-          <div id="settings">
-            <SettingsPanel socials={socials} />
+          <div className="grid gap-3">
+            <Link
+              href="/admin/pages"
+              className="rounded-[1.5rem] bg-[#08152f] p-5 text-white transition-transform hover:-translate-y-0.5"
+            >
+              <Plus className="h-5 w-5 text-white/70" strokeWidth={1.7} />
+              <div className="mt-6 text-base font-medium">Manage all pages</div>
+              <p className="mt-2 text-sm leading-6 text-white/55">
+                Open the page directory and choose an individual editing workspace.
+              </p>
+            </Link>
+            <Link
+              href="/admin/footer"
+              className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5 transition-colors hover:bg-white"
+            >
+              <PanelBottom className="h-5 w-5 text-slate-500" strokeWidth={1.7} />
+              <div className="mt-6 text-base font-medium text-slate-950">Update footer</div>
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                Edit footer columns, contact details, and legal links.
+              </p>
+            </Link>
           </div>
         </AdminSectionCard>
       </div>
-    </AdminShell>
+    </div>
   )
 }

@@ -1,17 +1,41 @@
+'use client'
+
 import { Bell, ChevronDown, LogOut, Search } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { formatSectionName, pageWorkspaces, PageSlug } from '@/components/admin/data'
 
 export default function AdminTopbar() {
+  const pathname = usePathname()
+  const segments = pathname.split('/').filter(Boolean)
+  const pageSlug = segments[2] as PageSlug | undefined
+  const sectionSlug = segments[3]
+
+  let title = 'Dashboard'
+  let eyebrow = 'Admin Console'
+
+  if (pathname === '/admin/pages') title = 'Website Pages'
+  if (pathname === "/admin/sections") title = "Section Library";
+  if (pathname === '/admin/media') title = 'Media Library'
+  if (pathname === '/admin/footer') title = 'Footer Manager'
+  if (pathname === '/admin/settings') title = 'Global Settings'
+  if (pageSlug && pageWorkspaces[pageSlug]) {
+    title = sectionSlug
+      ? `${formatSectionName(sectionSlug)} Section`
+      : `${pageWorkspaces[pageSlug].name} Page`
+    eyebrow = `${pageWorkspaces[pageSlug].name} Workspace`
+  }
+
   return (
     <header className="flex flex-col gap-4 rounded-[2rem] border border-slate-200/80 bg-white/90 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur md:flex-row md:items-center md:justify-between md:p-5">
       <div>
         <div className="text-[11px] uppercase tracking-[0.28em] text-slate-400">
-          Lexway Law
+          {eyebrow}
         </div>
         <h1
           className="mt-2 font-serif text-3xl leading-none text-slate-950"
           style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
         >
-          Admin Dashboard
+          {title}
         </h1>
       </div>
 

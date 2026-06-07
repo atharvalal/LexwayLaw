@@ -1,14 +1,15 @@
-import Link from 'next/link'
-import { Scale } from 'lucide-react'
-import { AdminNavItem } from '@/components/admin/types'
+'use client'
 
-export default function AdminSidebar({
-  items,
-}: {
-  items: AdminNavItem[]
-}) {
+import Link from 'next/link'
+import { ArrowUpRight, Scale } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { adminNavItems } from '@/components/admin/data'
+
+export default function AdminSidebar() {
+  const pathname = usePathname()
+
   return (
-    <aside className="flex h-full flex-col rounded-[2rem] border border-white/10 bg-[#08152f] p-5 text-white shadow-[0_28px_80px_rgba(3,12,28,0.45)] lg:p-6">
+    <aside className="flex flex-col rounded-[2rem] border border-white/10 bg-[#08152f] p-5 text-white shadow-[0_28px_80px_rgba(3,12,28,0.45)] lg:sticky lg:top-8 lg:min-h-[calc(100vh-4rem)] lg:p-6">
       <div className="mb-8 flex items-center gap-3">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-white/5">
           <Scale className="h-5 w-5 text-[#dce7fa]" strokeWidth={1.5} />
@@ -31,9 +32,12 @@ export default function AdminSidebar({
       </div>
 
       <nav className="space-y-2">
-        {items.map((item, index) => {
+        {adminNavItems.map((item) => {
           const Icon = item.icon
-          const isActive = index === 0
+          const isActive =
+            item.href === '/admin'
+              ? pathname === '/admin'
+              : pathname.startsWith(item.href)
 
           return (
             <Link
@@ -67,14 +71,19 @@ export default function AdminSidebar({
         })}
       </nav>
 
-      <div className="mt-auto rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-4">
-        <div className="text-[11px] uppercase tracking-[0.28em] text-white/40">
-          Integration Ready
+      <Link
+        href="/"
+        target="_blank"
+        className="mt-8 flex items-center justify-between rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-4 transition-colors hover:bg-white/[0.08] lg:mt-auto"
+      >
+        <div>
+          <div className="text-[11px] uppercase tracking-[0.28em] text-white/40">
+            Live Website
+          </div>
+          <p className="mt-2 text-sm text-white/70">Open public site</p>
         </div>
-        <p className="mt-3 text-sm leading-6 text-white/60">
-          UI is structured for future CMS and API hooks without redesigning the panel.
-        </p>
-      </div>
+        <ArrowUpRight className="h-4 w-4 text-white/50" strokeWidth={1.8} />
+      </Link>
     </aside>
   )
 }

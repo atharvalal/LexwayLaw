@@ -1,4 +1,5 @@
 import { Eye, FilePenLine } from 'lucide-react'
+import Link from 'next/link'
 import { ManagedPage } from '@/components/admin/types'
 
 export default function PageManagementTable({
@@ -32,14 +33,21 @@ export default function PageManagementTable({
             </div>
             <div className="text-sm text-slate-500">{page.updatedAt}</div>
             <div className="flex flex-wrap gap-3">
-              <button className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:text-slate-950">
+              <Link
+                href={`/admin/pages/${page.slug}`}
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950"
+              >
                 <FilePenLine className="h-4 w-4" strokeWidth={1.8} />
                 Edit
-              </button>
-              <button className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:text-slate-950">
+              </Link>
+              <Link
+                href={page.slug === 'home' ? '/' : `/${page.slug}`}
+                target="_blank"
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950"
+              >
                 <Eye className="h-4 w-4" strokeWidth={1.8} />
                 Preview
-              </button>
+              </Link>
             </div>
           </div>
         ))}
