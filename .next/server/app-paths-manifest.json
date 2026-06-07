@@ -1,8 +1,20 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/page": "app/page.js",
   "/icon.svg/route": "app/icon.svg/route.js",
-  "/admin/page": "app/admin/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/practice-areas/page": "app/practice-areas/page.js",
+  "/team/page": "app/team/page.js",
+  "/team/[slug]/page": "app/team/[slug]/page.js",
+  "/admin/footer/page": "app/admin/footer/page.js",
+  "/admin/faqs/page": "app/admin/faqs/page.js",
+  "/admin/media/page": "app/admin/media/page.js",
   "/admin/sections/page": "app/admin/sections/page.js",
   "/admin/pages/page": "app/admin/pages/page.js",
   "/admin/settings/page": "app/admin/settings/page.js",
-  "/admin/footer/page": "app/admin/footer/page.js"
+  "/admin/pages/[pageSlug]/[sectionSlug]/page": "app/admin/pages/[pageSlug]/[sectionSlug]/page.js",
+  "/admin/pages/[pageSlug]/page": "app/admin/pages/[pageSlug]/page.js",
+  "/admin/page": "app/admin/page.js"
 }
